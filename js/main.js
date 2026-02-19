@@ -43,13 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Gallery Filtering
+    // Gallery Interactivity
     const filterBtns = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const closeLightbox = document.querySelector('.close-lightbox');
 
+    // Filtering
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update active button
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
@@ -65,6 +68,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    });
+
+    // Lightbox
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const imgSrc = item.querySelector('img').src;
+            const imgAlt = item.querySelector('img').alt;
+            lightboxImg.src = imgSrc;
+            lightboxImg.alt = imgAlt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        });
+    });
+
+    const closeLightboxFunc = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    closeLightbox?.addEventListener('click', closeLightboxFunc);
+    lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightboxFunc();
     });
 
     // Contact Form Submission (Simulation)

@@ -364,8 +364,15 @@ nav {
     transition: 0.3s;
 }
 
-.gallery-item:hover {
-    transform: scale(1.02);
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
 }
 
 .gallery-item::after {
@@ -381,20 +388,53 @@ nav {
     font-weight: 700;
     opacity: 0;
     transition: 0.3s;
+    z-index: 2;
 }
 
 .gallery-item:hover::after {
     opacity: 1;
 }
 
-.placeholder-img i {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    display: block;
+/* Lightbox Styles */
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
 }
 
-.placeholder-img.tall {
-    height: 350px;
+#lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#lightbox.active img {
+    transform: scale(1);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
 }
 
 /* Contact Section */
