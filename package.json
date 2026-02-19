@@ -1,0 +1,12 @@
+{
+  "name": "ense-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website showcasing graphic design and vibe coding experience.",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
