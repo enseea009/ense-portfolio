@@ -173,15 +173,15 @@
                 <div class="contact-card reveal">
                     <h2 class="section-title">Get In Touch</h2>
                     <p>Interested in working together? Drop a message!</p>
-                    <form id="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/xrealngn" method="POST">
                         <div class="form-group">
-                            <input type="text" placeholder="Name" required>
+                            <input type="text" name="name" placeholder="Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email" required>
+                            <input type="email" name="email" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message <i
                                 class="fas fa-paper-plane"></i></button>
